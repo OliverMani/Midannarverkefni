@@ -1,6 +1,12 @@
 from bottle import *
+from sys import argv
 
 import json, urllib.request
+
+port = 8080
+
+if len(argv) > 1:
+	port = int(argv[1])
 
 @route('/')
 def index():
@@ -20,41 +26,6 @@ def bensinstod(bensin):
 	gogn = urllib.request.urlopen('http://apis.is/petrol')
 	listi = json.loads(gogn.read())
 	return template('html/info.tpl', bensin=bensin, gogn=listi);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @error(404)
 def error(err):
@@ -98,4 +69,4 @@ def error(err):
 </html>
 	"""
 
-run(host='0.0.0.0', port=8080, debug=True, reloader=True)
+run(host='0.0.0.0', port=port, debug=True, reloader=True)
