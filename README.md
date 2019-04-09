@@ -1,4 +1,4 @@
 ## Miðannarverkefni
 
 
-Heroku: https://vsh3-midannarverkefni.herokuapp.com/
+Heroku: https://bensin.herokuapp.com/
